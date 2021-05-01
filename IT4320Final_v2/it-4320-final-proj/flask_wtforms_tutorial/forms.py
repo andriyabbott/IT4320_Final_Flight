@@ -67,9 +67,6 @@ class AdminLoginForm(FlaskForm):
     username = StringField('Username', [DataRequired()])
     password = StringField('Password', [DataRequired()])
     login = SubmitField("Login")
-
-    
-
     
 
 

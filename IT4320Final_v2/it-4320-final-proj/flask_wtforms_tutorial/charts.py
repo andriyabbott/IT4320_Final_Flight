@@ -6,22 +6,23 @@ def emptySeats(row, column):
 def initialSeats(flight):
 
     try:
-        file  = open("reservations.txt")
+        file  = open("flask_wtforms_tutorial/reservations.txt")
         for data in file:
             reserved = data.split(",")
             row = int(reserved[1].strip())
             column = int(reserved[2].strip())
             flight[row][column] = "X"
-            file.close()
+
+        file.close()    
     except:
         print("ERROR loading reservation system")
 
     return flight
 
 def print_flightChart(flight):
-    print("\nPrinting Seating Chart...")
-
+    map=""
     for row in flight:
-        print(row)
-    print()
-    return
+        map+=str(row)
+        map+="\n"
+        
+    return map

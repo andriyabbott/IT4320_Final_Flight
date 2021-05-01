@@ -31,9 +31,18 @@
     <li> <a href="./">Home</a></li>
   </ul>
   <h2 class="title">Administrator Login</h2>
-  
+  {% if err %}
+        <p style="color: red;">{{ err }}</p>
+  {% endif %}
+  {% if chart %}
+        <p>Printing Seating Chart......</p>
+        <p id="chart" style="background-color: darkgray; width:23%;">
+          {{ chart }}
+        </p>
+  {% endif %}
   <form method="POST" action="/admin">
       {{ form.csrf_token }}
+      
       <div class="form-field">{{ form.username.label }} {{ form.username }}
         {% if form.username.errors %}
           <ul class="errors">
