@@ -68,6 +68,16 @@ class AdminLoginForm(FlaskForm):
     password = StringField('Password', [DataRequired()])
     login = SubmitField("Login")
     
+def save(first_name, row, seat):
+    save_data = open('reservations.txt', 'a')
+
+    save_data.write('\n'+first_name+','+row+','+seat)
+
+    save_data.close()
+
+    
+    
+    
 
 
 
