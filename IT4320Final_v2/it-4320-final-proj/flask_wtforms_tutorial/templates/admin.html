@@ -34,11 +34,15 @@
   {% if err %}
         <p style="color: red;">{{ err }}</p>
   {% endif %}
+  
   {% if chart %}
         <p>Printing Seating Chart......</p>
-        <p id="chart" style="background-color: darkgray; width:23%;">
+        <p id="chart" style="background-color: darkgray; width:120px;">
           {{ chart }}
         </p>
+  {% endif %}
+  {% if message %}
+        <p>{{ message }}</p>
   {% endif %}
   <form method="POST" action="/admin">
       {{ form.csrf_token }}

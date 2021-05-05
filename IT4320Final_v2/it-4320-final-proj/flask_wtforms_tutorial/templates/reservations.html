@@ -31,8 +31,17 @@
     <li> <a href="./">Home</a></li>
   </ul>
   <h2 class="title">Reserve Your Seat</h2>
-  
-  <form method="POST" action="/admin">
+  {% if err %}
+        <p style="color: red;">{{ err }}</p>
+  {% endif %}
+  {% if message %}
+        <p>{{ message }}</p>
+  {% endif %}
+  <p>X = Reserved seats: O = Available seats</p>
+  <p id="chart" style="background-color: darkgray; width:120px;">
+    {{ chart }}
+  </p>
+  <form method="POST" action="/reservations">
       {{ form.csrf_token }}
       <div class="form-field">{{ form.first_name.label }} {{ form.first_name }}
         {% if form.first_name.errors %}
