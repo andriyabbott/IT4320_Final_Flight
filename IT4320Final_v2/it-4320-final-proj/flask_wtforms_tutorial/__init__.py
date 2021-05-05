@@ -8,6 +8,7 @@ def create_app():
     app.config.from_object("config.Config")
     app.config["RECAPTCHA_PUBLIC_KEY"] = "iubhiukfgjbkhfvgkdfm"
     app.config["RECAPTCHA_PARAMETERS"] = {"size": "100%"}
+    app.config["SECRET_KEY"] = "super top secret"
 
     with app.app_context():
         # Import parts of our flask_wtforms_tutorial
